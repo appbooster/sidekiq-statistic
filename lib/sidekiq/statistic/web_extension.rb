@@ -15,6 +15,10 @@ module Sidekiq
         app.helpers Helpers::Color
         app.helpers Helpers::Date
 
+        app.get '/jquery.min.js' do
+          [200, JAVASCRIPT_CONTENT_TYPE, Views.require_assets('jquery.min.js')]
+        end
+
         app.get '/c3.js' do
           [200, JAVASCRIPT_CONTENT_TYPE, Views.require_assets('c3.js')]
         end
